@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {"source":"/our-services","destination":"/servicios","permanent":true},
+    {"source":"/pricing","destination":"/planes","permanent":true},
+    {"source":"/about-us","destination":"/sobre-nosotros","permanent":true},
+    {"source":"/contactus","destination":"/contacto","permanent":true},
+    {"source":"/privacy","destination":"/privacidad","permanent":true}
+  ]
+}
