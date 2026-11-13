@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/aliados/">
+<meta name="robots" content="noindex">
+<title>Aliados Onytek</title>
+<style>
+/* Identidad de onytek.co: ónix cálido, neón #5CC8FF, Verdana, píldoras con degradado, tarjetas de vidrio. */
+:root{
+  --bg:#1C1B19; --bg2:#242321; --neon:#5CC8FF; --blue:#1D5AB5; --cy:#12B3E8; --ice:#A9C8DA;
+  --paper:#F8F7F5; --ink:#171615; --ink2:#4A5560; --txt:#F4F3F0; --mute:#B3C6D8;
+  --line:rgba(160,200,235,.28); --glass:rgba(38,37,35,.6);
+  --body:Verdana,Geneva,"DejaVu Sans",sans-serif; --mono:"Courier New",Courier,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:linear-gradient(180deg,#1C1B19,#242321);color:var(--txt);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--neon);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-weight:700;line-height:1.15;text-wrap:balance}
+.mono{font-family:var(--mono);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+#bar{position:fixed;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--blue),var(--neon));box-shadow:0 0 12px var(--neon);transform:scaleX(0);transform-origin:0 50%;z-index:60}
+#spot{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(420px circle at var(--x,50%) var(--y,30%),rgba(92,200,255,.08),transparent 60%)}
+.top{position:sticky;top:0;z-index:50;background:rgba(28,27,25,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px}
+.top img{height:30px;width:auto}
+/* botones: píldora con degradado */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--body);font-weight:700;font-size:14.5px;text-decoration:none;padding:13px 24px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:linear-gradient(135deg,#E3E0DB,#5CC8FF);color:#171615;box-shadow:0 8px 26px rgba(92,200,255,.22);transition:transform .2s,box-shadow .3s;cursor:pointer}
+.btn::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);transition:left .6s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(92,200,255,.5),0 0 0 1px rgba(92,200,255,.6)}
+.btn:hover::after{left:120%}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:rgba(255,255,255,.04);color:var(--txt);border-color:var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--neon);box-shadow:0 0 24px rgba(92,200,255,.3)}
+.btn.sm{padding:10px 18px;font-size:13px}
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 75% 40%,rgba(29,90,181,.45),transparent 70%),radial-gradient(ellipse 50% 50% at 10% 90%,rgba(92,200,255,.12),transparent 70%)}
+#net{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:center;padding-top:64px;padding-bottom:64px}
+.term{color:var(--neon);margin-bottom:18px}
+.term i{display:inline-block;width:.55em;height:1em;background:var(--neon);vertical-align:-2px;margin-left:4px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero h1{font-size:clamp(34px,6.2vw,66px);font-weight:700;letter-spacing:-.02em;background:linear-gradient(180deg,#FFFFFF,#A9C8DA);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(92,200,255,.25));animation:blurin 1s both}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#5CC8FF,#1D5AB5 140%);-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes blurin{from{filter:blur(12px);opacity:.2}to{opacity:1}}
+.hero p.lead{max-width:540px;font-size:17px;color:var(--mute);margin-top:24px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.crystal{position:relative;display:grid;place-items:center}
+.crystal img{width:min(100%,380px);animation:float 6s ease-in-out infinite;transition:transform .15s ease-out;filter:drop-shadow(0 0 40px rgba(42,139,216,.55))}
+@keyframes float{50%{translate:0 -14px}}
+/* marquee */
+.marq{border-bottom:1px solid var(--line);background:rgba(38,37,35,.7);overflow:hidden;white-space:nowrap}
+.marq div{display:inline-block;padding:13px 0;font-family:var(--mono);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:var(--ice);animation:slide 30s linear infinite}
+.marq span{margin:0 18px}.marq span:nth-child(even){color:var(--neon)}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* secciones */
+section{position:relative;z-index:2}
+.sec{padding:84px 0}
+.sec h2{font-size:clamp(28px,4.4vw,46px);letter-spacing:-.01em}
+.hl{display:block;width:min(100%,520px);height:auto;margin:6px 0 4px;filter:drop-shadow(0 0 14px rgba(92,200,255,.25));animation:blurin .9s both}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.kick{display:inline-flex;align-items:center;gap:10px;margin-bottom:14px;color:var(--neon)}
+.kick::before{content:"";width:6px;height:6px;background:var(--neon);transform:rotate(45deg);box-shadow:0 0 8px var(--neon)}
+.paper{background:var(--paper);color:var(--ink)}
+.paper .kick{color:var(--blue)}.paper .kick::before{background:var(--blue);box-shadow:none}
+.paper .sub{color:var(--ink2)}
+.sub{max-width:620px;margin-top:16px;color:var(--mute);font-size:16.5px}
+/* problema / solución */
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:26px}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:34px}
+.pc{background:#FFFFFF;color:var(--ink);border:1px solid #E6E4DF;border-radius:14px;box-shadow:0 14px 40px rgba(34,32,30,.10);padding:26px;display:flex;flex-direction:column;gap:18px;transition:background .4s,color .4s,box-shadow .4s,border-color .4s}
+.pc[data-on="true"]{background:linear-gradient(135deg,#0E7FD8 0%,#2E5FE3 100%);color:#fff;border-color:transparent;box-shadow:0 18px 44px rgba(30,90,200,.38)}
+.faces{display:grid}
+.face{grid-area:1/1;transition:opacity .35s,transform .35s}
+.face.sol{opacity:0;transform:translateY(12px);visibility:hidden}
+.pc[data-on="true"] .face.prob{opacity:0;transform:translateY(-12px);visibility:hidden}
+.pc[data-on="true"] .face.sol{opacity:1;transform:none;visibility:visible}
+.tag{font-family:var(--mono);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase}
+.prob .tag{color:#B4452E}
+.sol .tag{color:#D7F1FF}
+.face h3{font-size:clamp(19px,2.4vw,24px);margin:10px 0 12px}
+.face p{font-size:15.5px;line-height:1.6}
+.prob p{color:var(--ink2)}
+.sol p{color:#F1F7FF}
+.price{display:inline-block;margin-top:14px;padding:7px 16px;border-radius:999px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.5);color:#fff;font-family:var(--mono);font-weight:700;font-size:13px}
+.swrow{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:auto}
+.swrow span{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.sw{position:relative;width:60px;height:32px;border:1px solid #C9CED4;background:#ECEBE8;color:inherit;cursor:pointer;border-radius:999px;flex:none;transition:background .3s,border-color .3s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:var(--blue);transition:transform .3s cubic-bezier(.3,1.4,.5,1),background .3s}
+.pc[data-on="true"] .sw{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.7)}
+.pc[data-on="true"] .sw::after{transform:translateX(28px);background:#fff}
+/* servicios */
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin:32px 0 0}
+.tab{font-family:var(--body);font-weight:700;font-size:13.5px;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--glass);color:var(--txt);cursor:pointer;transition:background .2s,color .2s,border-color .2s,box-shadow .3s}
+.tab:hover{border-color:var(--neon);box-shadow:0 0 20px rgba(92,200,255,.25)}
+.tab[aria-selected="true"]{background:linear-gradient(135deg,#E3E0DB,#5CC8FF);color:#171615;border-color:transparent;box-shadow:0 8px 24px rgba(92,200,255,.3)}
+.panel{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;margin-top:26px;animation:pin .35s ease both}
+@keyframes pin{from{transform:translateY(10px)}to{transform:none}}
+.panel .desc{border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);border-radius:14px;padding:30px}
+.panel .desc h3{font-size:clamp(22px,3vw,30px);margin-bottom:14px;background:linear-gradient(180deg,#fff,#A9C8DA);-webkit-background-clip:text;background-clip:text;color:transparent}
+.panel .desc p{color:var(--mute);font-size:16px}
+.panel ul{list-style:none;margin-top:20px;display:grid;gap:10px}
+.panel li{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+.panel li::before{content:"";flex:none;width:6px;height:6px;margin-top:9px;background:var(--neon);transform:rotate(45deg);box-shadow:0 0 6px var(--neon)}
+.pricebox{background:linear-gradient(135deg,#0E7FD8 0%,#2E5FE3 100%);color:#fff;border-radius:14px;box-shadow:0 18px 44px rgba(30,90,200,.35);padding:26px;display:flex;flex-direction:column;gap:6px}
+.pricebox .mono{color:#D7F1FF}
+.pl{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.4);font-size:14.5px}
+.pl b{font-family:var(--mono);font-weight:700;white-space:nowrap}
+.pricebox .note{font-size:13.5px;margin-top:8px;color:#EAF4FF}
+.pricebox .btn{margin-top:14px}
+/* proceso */
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.track{position:absolute;left:0;right:0;top:-20px;height:3px;border-radius:3px;background:rgba(160,200,235,.18)}
+.track i{position:absolute;left:0;top:0;bottom:0;width:calc(var(--p,1)*100%);border-radius:3px;background:linear-gradient(90deg,var(--blue),var(--neon));box-shadow:0 0 10px var(--neon)}
+.st{border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);border-radius:14px;padding:22px;transition:transform .25s,border-color .3s,box-shadow .3s}
+.st:hover{transform:translateY(-4px);border-color:var(--neon);box-shadow:0 14px 36px rgba(92,200,255,.18)}
+.st h3{font-size:19px;margin:10px 0 8px}
+.st p{color:var(--mute);font-size:14.5px}
+.st .mono{color:var(--neon)}
+/* alianzas */
+.agrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+.ac{position:relative;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform .25s,box-shadow .3s,border-color .3s}
+.ac:hover{transform:translateY(-5px);border-color:var(--neon);box-shadow:0 20px 50px rgba(29,90,181,.35)}
+.ac h3{font-size:21px}
+.ac p{color:var(--mute);flex:1;font-size:15px}
+.fine{margin-top:26px;color:var(--mute);font-size:14.5px}
+/* propósito */
+.purpose{background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(29,90,181,.3),transparent 75%),#1C1B19;border-block:1px solid var(--line)}
+.big{font-size:clamp(22px,3.8vw,42px);line-height:1.3;letter-spacing:-.01em;margin-top:18px;font-weight:700}
+.big .w{color:#6F8296;transition:color .3s}
+.big .w.on{color:#F4F3F0}
+.big .w.on.hi{color:var(--neon);text-shadow:0 0 18px rgba(92,200,255,.5)}
+/* fabian */
+.who{display:grid;grid-template-columns:.7fr 1.3fr;gap:40px;align-items:center}
+.who figure{border-radius:18px;overflow:hidden;border:1px solid #E6E4DF;box-shadow:0 18px 50px rgba(29,90,181,.28)}
+.who img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 20%}
+.who h2{font-size:clamp(28px,4vw,42px)}
+.who p{margin-top:16px;color:var(--ink2);font-size:16px;max-width:600px}
+.who .role{color:var(--blue);margin-bottom:10px;display:block}
+/* contacto */
+.contact{background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(29,90,181,.35),transparent 70%)}
+.contact .hl{width:min(100%,620px)}
+.contact h2.t2{font-size:clamp(24px,4vw,38px);margin-top:12px;color:var(--ice)}
+.cgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px}
+.ci{border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);border-radius:14px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;transition:border-color .3s,box-shadow .3s}
+.ci:hover{border-color:var(--neon);box-shadow:0 0 24px rgba(92,200,255,.18)}
+.ci .l{display:block;color:var(--neon);margin-bottom:4px}
+.ci a.v,.ci .v{font-weight:700;font-size:16px;word-break:break-word;text-decoration:none}
+.ci a.v:hover{color:var(--neon)}
+.cp{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:999px;border:1px solid var(--neon);background:transparent;color:var(--neon);cursor:pointer;flex:none;transition:background .2s,color .2s}
+.cp:hover{background:var(--neon);color:#171615}
+footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:30px 0 40px;color:var(--mute);font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+footer img{height:26px}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:36px}
+  .crystal{order:-1;max-width:240px}
+  .pgrid,.agrid,.cgrid,.panel,.who{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .sec{padding:60px 0}
+  .who figure{max-width:320px}
+}
+@media (max-width:520px){
+  .steps{grid-template-columns:1fr}
+  .top .btn span.long{display:none}
+  .hero p.lead{font-size:15.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="spot" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap">
+    <img src="assets/logo-h.png" alt="Onytek">
+    <a class="btn sm" data-wa="Hola Fabian, vi el brochure de Onytek y quiero hablar de una alianza." href="https://wa.me/573002072739" target="_blank" rel="noopener"><span><span class="long">Escríbeme por </span>WhatsApp</span></a>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <div class="mono term">&gt; brochure_aliados<i></i></div>
+      <h1>Hagamos crecer negocios, <em>juntos.</em></h1>
+      <p class="lead">Somos Onytek: páginas web, portales a la medida, automatización y soporte TI para pymes. Buscamos aliados que compartan una forma de trabajar: honestidad, buen servicio y propósito.</p>
+      <div class="cta">
+        <a class="btn" data-wa="Hola Fabian, vi el brochure de Onytek y quiero hablar de una alianza." href="https://wa.me/573002072739" target="_blank" rel="noopener">Hablemos</a>
+        <a class="btn ghost" href="#servicios">Ver servicios</a>
+      </div>
+    </div>
+    <div class="crystal" id="crystal"><img src="assets/isotipo.png" alt="Cristal con circuito, isotipo de Onytek" width="380" height="374"></div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div id="marq"></div></div>
+
+<section class="sec paper" id="problemas">
+  <div class="wrap">
+    <span class="mono kick">Del problema a la solución</span>
+    <h2>Su problema, nuestra solución.</h2>
+    <p class="sub">Esto es lo que vive tu cliente y lo que hacemos nosotros. Toca el interruptor de cada tarjeta.</p>
+    <div class="tools"><button class="btn" id="allSol" type="button">Ver todas las soluciones</button></div>
+    <div class="pgrid" id="pgrid">
+      <article class="pc" data-on="false">
+        <div class="faces">
+          <div class="face prob"><span class="tag">El problema</span><h3>Su negocio no se ve en internet</h3><p>Depende del voz a voz: sin página, sin Google y sin un lugar donde cerrar la venta.</p></div>
+          <div class="face sol"><span class="tag">Cómo lo resolvemos</span><h3>Páginas web y tiendas con panel</h3><p>Diseño con su logo y colores, pensado para el celular, con WhatsApp, dominio y 2 correos el primer año.</p><span class="price">Desde $490.000</span></div>
+        </div>
+        <div class="swrow"><span>Ver solución</span><button class="sw" type="button" role="switch" aria-checked="false" aria-label="Ver la solución a: su negocio no se ve en internet"></button></div>
+      </article>
+      <article class="pc" data-on="false">
+        <div class="faces">
+          <div class="face prob"><span class="tag">El problema</span><h3>Todo se hace a mano</h3><p>Pedidos en chats, cuentas en Excel y datos copiados de un lado a otro: se pierde tiempo y aparecen errores.</p></div>
+          <div class="face sol"><span class="tag">Cómo lo resolvemos</span><h3>Portales y automatización</h3><p>Paneles de administración, pedidos con avisos por WhatsApp, inventario, contabilidad y flujos con n8n.</p><span class="price">A cotizar según alcance</span></div>
+        </div>
+        <div class="swrow"><span>Ver solución</span><button class="sw" type="button" role="switch" aria-checked="false" aria-label="Ver la solución a: todo se hace a mano"></button></div>
+      </article>
+      <article class="pc" data-on="false">
+        <div class="faces">
+          <div class="face prob"><span class="tag">El problema</span><h3>Cuando la tecnología falla, el negocio se detiene</h3><p>Red caída, equipos lentos, accesos sin control y nadie que responda a tiempo.</p></div>
+          <div class="face sol"><span class="tag">Cómo lo resolvemos</span><h3>Soporte TI proactivo</h3><p>Mantenimiento preventivo, redes, servidores y ciberseguridad, en plan mensual o por demanda.</p><span class="price">Desde $390.000 al mes</span></div>
+        </div>
+        <div class="swrow"><span>Ver solución</span><button class="sw" type="button" role="switch" aria-checked="false" aria-label="Ver la solución a: cuando la tecnología falla, el negocio se detiene"></button></div>
+      </article>
+      <article class="pc" data-on="false">
+        <div class="faces">
+          <div class="face prob"><span class="tag">El problema</span><h3>Los recuerdos de un evento se pierden</h3><p>Las fotos de una celebración quedan repartidas en cien celulares y nadie vuelve a verlas.</p></div>
+          <div class="face sol"><span class="tag">Cómo lo resolvemos</span><h3>Ambra, portal de fotos con QR</h3><p>Los invitados suben fotos, videos y mensajes sin registrarse, y el anfitrión recibe todo en una galería para guardar y descargar.</p><span class="price">Desde $499.900 por evento</span></div>
+        </div>
+        <div class="swrow"><span>Ver solución</span><button class="sw" type="button" role="switch" aria-checked="false" aria-label="Ver la solución a: los recuerdos de un evento se pierden"></button></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="servicios">
+  <div class="wrap">
+    <span class="mono kick">Servicios y precios de referencia</span>
+    <h2 class="sr">Lo que hacemos: todo en un solo equipo</h2><img class="hl" src="assets/h-servicios.png" alt="" width="730" height="217" style="max-width:420px"><p class="sub">Todo en un solo equipo, con precios de referencia claros.</p>
+    <div class="tabs" role="tablist" aria-label="Servicios de Onytek" id="tabs"></div>
+    <div class="panel" id="panel" role="tabpanel" tabindex="0"></div>
+  </div>
+</section>
+
+<section class="sec" id="proceso">
+  <div class="wrap">
+    <span class="mono kick">Cómo trabajamos juntos</span>
+    <h2 class="sr">Nuestro método: cuatro pasos, sin letra pequeña</h2><img class="hl" src="assets/h-metodo.png" alt="" width="985" height="303" style="max-width:380px"><p class="sub">Cuatro pasos, sin letra pequeña.</p>
+    <div class="steps" id="steps">
+      <div class="track"><i></i></div>
+      <div class="st"><span class="mono">Paso 1</span><h3>Escuchamos</h3><p>Diagnóstico gratuito, virtual o presencial.</p></div>
+      <div class="st"><span class="mono">Paso 2</span><h3>Proponemos</h3><p>Alcance y precio claros desde el inicio.</p></div>
+      <div class="st"><span class="mono">Paso 3</span><h3>Construimos</h3><p>Prototipo para aprobar antes de publicar.</p></div>
+      <div class="st"><span class="mono">Paso 4</span><h3>Acompañamos</h3><p>Soporte por WhatsApp y mantenimiento opcional.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="alianzas">
+  <div class="wrap">
+    <span class="mono kick">Aliémonos</span>
+    <h2 class="sr">Aliado con propósito: tres formas de trabajar juntos</h2><img class="hl" src="assets/h-alianza.png" alt="" width="910" height="217" style="max-width:460px"><p class="sub">Tres formas de trabajar juntos.</p>
+    <div class="agrid">
+      <article class="ac"><h3>Referidos</h3><p>Nos presentas a alguien que necesita tecnología y nosotros nos encargamos del proyecto con el mismo cuidado que si fuera tuyo.</p><a class="btn sm" data-wa="Hola Fabian, quiero explorar una alianza por referidos con Onytek." href="https://wa.me/573002072739" target="_blank" rel="noopener">Explorar esta</a></article>
+      <article class="ac"><h3>Complemento</h3><p>Sumas páginas web, automatización, soporte TI o Ambra a lo que ya ofreces a tus clientes, con un equipo que responde por WhatsApp.</p><a class="btn sm" data-wa="Hola Fabian, quiero explorar una alianza para complementar mis servicios con los de Onytek." href="https://wa.me/573002072739" target="_blank" rel="noopener">Explorar esta</a></article>
+      <article class="ac"><h3>Proyectos en conjunto</h3><p>Unimos capacidades en proyectos grandes: tú aportas tu especialidad y nosotros la parte tecnológica.</p><a class="btn sm" data-wa="Hola Fabian, quiero explorar proyectos en conjunto con Onytek." href="https://wa.me/573002072739" target="_blank" rel="noopener">Explorar esta</a></article>
+    </div>
+    <p class="fine">Las condiciones de cada alianza las conversamos con claridad desde el inicio.</p>
+  </div>
+</section>
+
+<section class="sec purpose" id="proposito">
+  <div class="wrap">
+    <span class="mono kick">Nuestro propósito</span>
+    <p class="big" id="big">Más que clientes, buscamos aliados alineados con nuestro propósito: que lo que construimos sea de bendición. Nuestros servicios no son para todo el mundo, y eso está bien.</p>
+  </div>
+</section>
+
+<section class="sec paper" id="equipo">
+  <div class="wrap who">
+    <figure><img src="assets/fabian.jpg" alt="Fabian Cardona" width="360" height="360"></figure>
+    <div>
+      <span class="mono role">Fundador y CEO</span>
+      <h2>Fabian Cardona</h2>
+      <p>Más de 16 años en sistemas: está en ese mundo desde los 16. Empezó estructurando, protegiendo y gestionando redes empresariales, y hoy también crea páginas web, portales y plataformas a la medida, como PointFix en alianza, el sistema de pedidos de Dulce Hojaldre y Ambra.</p>
+      <p>Fundó Onytek para que las pymes tengan tecnología de alto nivel sin dolores de cabeza. Opera, define la estrategia y entrega cada proyecto.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contacto">
+  <div class="wrap">
+    <span class="mono kick">Contacto</span>
+    <h2 class="sr">Hablemos</h2><img class="hl" src="assets/h-contacto.png" alt="" width="953" height="95"><h2 class="t2">Escríbeme hoy.</h2>
+    <div class="cta" style="margin-top:30px">
+      <a class="btn" data-wa="Hola Fabian, vi el brochure de Onytek y quiero hablar de una alianza." href="https://wa.me/573002072739" target="_blank" rel="noopener">Abrir WhatsApp</a>
+    </div>
+    <div class="cgrid">
+      <div class="ci"><div><span class="mono l">WhatsApp</span><span class="v">+57 300 207 2739</span></div><button class="cp" type="button" data-copy="+57 300 207 2739">Copiar</button></div>
+      <div class="ci"><div><span class="mono l">Correo</span><a class="v" href="mailto:fcardona@onytek.co">fcardona@onytek.co</a></div><button class="cp" type="button" data-copy="fcardona@onytek.co">Copiar</button></div>
+      <div class="ci"><div><span class="mono l">Página de Onytek</span><a class="v" href="https://onytek.co" target="_blank" rel="noopener">onytek.co</a></div></div>
+      <div class="ci"><div><span class="mono l">Página de Ambra</span><a class="v" href="https://ambra.onytek.co/" target="_blank" rel="noopener">ambra.onytek.co</a></div></div>
+      <div class="ci"><div><span class="mono l">Redes</span><a class="v" href="https://beacons.ai/fabcaral" target="_blank" rel="noopener">beacons.ai/fabcaral</a></div></div>
+      <div class="ci"><div><span class="mono l">Ubicación</span><span class="v">Cali, Colombia</span><div style="color:var(--mute);font-size:13px;margin-top:2px">Visitas en Cali, Yumbo, Palmira y Jamundí</div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/logo-h.png" alt="Onytek">
+    <span>Tecnología con propósito, ejecución con precisión.</span>
+    <span>Precios de referencia en pesos colombianos, sujetos a diagnóstico.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var WA='https://wa.me/573002072739?text=';
+  document.querySelectorAll('[data-wa]').forEach(function(a){a.href=WA+encodeURIComponent(a.getAttribute('data-wa'));});
+
+  /* marquee */
+  var words=['Páginas web','Portales','Automatización','Soporte TI','Redes','Servidores','Ciberseguridad','Ambra'];
+  var m=''; for(var k=0;k<2;k++){ for(var i=0;i<words.length;i++){ m+='<span>'+words[i]+'</span><span>/</span>'; } }
+  document.getElementById('marq').innerHTML=m;
+
+  /* problema / solución */
+  var cards=[].slice.call(document.querySelectorAll('.pc'));
+  function setCard(c,on){ c.setAttribute('data-on',on?'true':'false'); var s=c.querySelector('.sw'); s.setAttribute('aria-checked',on?'true':'false'); c.querySelector('.swrow span').textContent=on?'Ver problema':'Ver solución'; }
+  var touched=false;
+  cards.forEach(function(c){ c.querySelector('.sw').addEventListener('click',function(){ touched=true; setCard(c,c.getAttribute('data-on')!=='true'); syncAll(); }); });
+  var allBtn=document.getElementById('allSol');
+  function syncAll(){ var all=cards.every(function(c){return c.getAttribute('data-on')==='true';}); allBtn.textContent=all?'Volver a los problemas':'Ver todas las soluciones'; allBtn.setAttribute('data-all',all?'1':'0'); }
+  allBtn.addEventListener('click',function(){ touched=true; var all=allBtn.getAttribute('data-all')==='1'; cards.forEach(function(c){setCard(c,!all);}); syncAll(); });
+  if('IntersectionObserver' in window && !rm){
+    var demoed=false;
+    new IntersectionObserver(function(es,o){ es.forEach(function(e){ if(e.isIntersecting && !demoed){ demoed=true; cards.forEach(function(c,i){ setTimeout(function(){ if(!touched){ setCard(c,true); syncAll(); } }, 1400+i*700); }); o.disconnect(); } }); },{threshold:.35}).observe(document.getElementById('pgrid'));
+  }
+
+  /* servicios */
+  var S=[
+   {id:'web',n:'Páginas web',t:'Páginas web y tiendas',d:'Tu marca en internet, lista para vender y para que te encuentren en Google. Hecha para el celular.',b:['Diseño con tu logo y colores','Botón de WhatsApp','Dominio y 2 correos con tu dominio el primer año','Prototipo para aprobar antes de publicar (Página Personalizada)','Garantía de 30 días'],p:[['Página Básica','$490.000'],['Página Personalizada','$990.000'],['Tienda + panel','desde $2.490.000']],note:'Pago en cuotas con contrato: 40% de anticipo y el resto en 6 cuotas.',wa:'Hola Fabian, soy aliado y me interesa el servicio de páginas web de Onytek.'},
+   {id:'portales',n:'Portales',t:'Portales y plataformas',d:'Sistemas hechos a la medida de tu operación, con panel de administración y automatizaciones que trabajan por ti. Así nació PointFix.',b:['Pedidos, órdenes y seguimiento con avisos por WhatsApp','Inventario, punto de venta y contabilidad','Panel de administración propio'],p:[['Desarrollo a la medida','A cotizar']],note:'El precio depende del alcance. Lo definimos contigo en el diagnóstico.',wa:'Hola Fabian, soy aliado y me interesa el servicio de portales a la medida de Onytek.'},
+   {id:'auto',n:'Automatización',t:'Flujos de trabajo con n8n',d:'Conectamos tus aplicaciones para que hablen entre sí y el trabajo repetitivo se haga solo.',b:['n8n, WhatsApp, correo y hojas de cálculo','Menos errores y más tiempo para vender y crecer','Procesos B2B a la medida'],p:[['Automatización','A cotizar']],note:'El precio depende de los procesos que se automaticen.',wa:'Hola Fabian, soy aliado y me interesa el servicio de automatización de Onytek.'},
+   {id:'ti',n:'Soporte TI',t:'Tu departamento de sistemas',d:'Pasamos del soporte reactivo a la gestión proactiva: mantenimiento preventivo, monitoreo y respuesta rápida.',b:['Soporte remoto y visitas presenciales','Gestión de red, WiFi y usuarios','Antivirus corporativo y copias de seguridad verificadas','Inventario y hoja de vida de equipos'],p:[['Esencial (hasta 5 equipos)','$390.000/mes'],['Profesional (hasta 15)','$790.000/mes'],['Corporativo (hasta 40)','desde $1.490.000/mes']],note:'También por demanda: visita técnica desde $180.000.',wa:'Hola Fabian, soy aliado y me interesa el soporte TI mensual de Onytek.'},
+   {id:'redes',n:'Redes y servidores',t:'Infraestructura y ciberseguridad',d:'La columna vertebral de tu empresa. Si la red falla, todo se detiene.',b:['Cableado estructurado y armado de racks','Redes WiFi y LAN, routers MikroTik','Windows Server y Directorio Activo','Seguridad y antivirus empresarial'],p:[['Implementación','A cotizar tras el diagnóstico']],note:'Visitas presenciales en Cali, Yumbo, Palmira y Jamundí.',wa:'Hola Fabian, soy aliado y me interesa el servicio de redes y servidores de Onytek.'},
+   {id:'ambra',n:'Ambra',t:'Ambra, portal de fotos para eventos',d:'Tus invitados escanean un QR y suben fotos, videos y mensajes, sin registrarse y con su nombre. Tú recibes todo en una galería.',b:['Galería en vivo y libro de invitados','Descarga de todo en alta resolución (ZIP)','Impresos y envío incluidos en todos los planes','Prueba gratis antes de decidir'],p:[['Esencial','$499.900'],['Prestige','$899.900'],['Luxury','$1.299.900']],note:'Por evento, pago único. Mira cómo funciona en ambra.onytek.co.',wa:'Hola Fabian, soy aliado y me interesa Ambra para mis clientes.',link:'https://ambra.onytek.co/'}
+  ];
+  var tabs=document.getElementById('tabs'), panel=document.getElementById('panel'), cur=0;
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function render(i,focus){
+    cur=i; var s=S[i];
+    [].forEach.call(tabs.children,function(b,j){ b.setAttribute('aria-selected',j===i?'true':'false'); b.tabIndex=j===i?0:-1; });
+    var h='<div class="desc"><h3>'+esc(s.t)+'</h3><p>'+esc(s.d)+'</p><ul>'+s.b.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul></div>';
+    h+='<div class="pricebox"><span class="mono">Precios de referencia</span>'+s.p.map(function(x){return '<div class="pl"><span>'+esc(x[0])+'</span><b>'+esc(x[1])+'</b></div>';}).join('')+'<p class="note">'+esc(s.note)+'</p><a class="btn sm" id="svcWa" target="_blank" rel="noopener" href="'+WA+encodeURIComponent(s.wa)+'">Hablar de este servicio</a>'+(s.link?'<a class="btn sm" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.6);box-shadow:none;margin-top:8px" target="_blank" rel="noopener" href="'+s.link+'">Ver ambra.onytek.co</a>':'')+'</div>';
+    panel.innerHTML=h; panel.style.animation='none'; void panel.offsetWidth; panel.style.animation='';
+    if(focus) tabs.children[i].focus();
+  }
+  S.forEach(function(s,i){ var b=document.createElement('button'); b.type='button'; b.className='tab'; b.setAttribute('role','tab'); b.id='tab-'+s.id; b.textContent=s.n; b.addEventListener('click',function(){render(i,false);}); b.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'){e.preventDefault();render((cur+1)%S.length,true);} if(e.key==='ArrowLeft'){e.preventDefault();render((cur+S.length-1)%S.length,true);} }); tabs.appendChild(b); });
+  render(0,false);
+
+  /* propósito: palabras */
+  var big=document.getElementById('big'), txt=big.textContent.trim().split(/\s+/);
+  var hi={'aliados':1,'propósito:':1,'bendición.':1,'bendición':1};
+  big.innerHTML=txt.map(function(w){return '<span class="w'+(hi[w.toLowerCase()]?' hi':'')+'">'+esc(w)+'</span>';}).join(' ');
+  var ws=[].slice.call(big.querySelectorAll('.w'));
+
+  /* scroll */
+  var bar=document.getElementById('bar'), stepsEl=document.getElementById('steps'), prog=document.getElementById('proposito');
+  function clamp(x){return Math.max(0,Math.min(1,x));}
+  function onScroll(){
+    var de=document.documentElement, max=de.scrollHeight-de.clientHeight;
+    bar.style.transform='scaleX('+clamp(max>0?de.scrollTop/max:0)+')';
+    var vh=window.innerHeight, r=stepsEl.getBoundingClientRect();
+    stepsEl.style.setProperty('--p', clamp((vh*0.8-r.top)/Math.max(r.height,1)).toFixed(3));
+    var pr=prog.getBoundingClientRect(), p=clamp((vh*0.85-pr.top)/Math.max(pr.height*0.8,1));
+    var n=Math.round(p*ws.length);
+    ws.forEach(function(w,i){ w.classList.toggle('on',i<n); });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',onScroll); onScroll();
+
+  /* copiar */
+  document.querySelectorAll('.cp').forEach(function(b){ b.addEventListener('click',function(){ var v=b.getAttribute('data-copy'); var ok=function(){ var t=b.textContent; b.textContent='Copiado'; setTimeout(function(){b.textContent=t;},1500); }; try{ navigator.clipboard.writeText(v).then(ok,function(){}); }catch(e){} }); });
+
+  /* hero: red de nodos + parallax del cristal */
+  var cv=document.getElementById('net'), ctx=cv.getContext('2d'), hero=document.getElementById('inicio'), nodes=[], W=0,H=0, mouse={x:-999,y:-999}, dpr=Math.min(window.devicePixelRatio||1,2);
+  function size(){ W=hero.clientWidth; H=hero.clientHeight; cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); var n=Math.round(W*H/16000); nodes=[]; for(var i=0;i<n;i++){ nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35}); } draw(); }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<nodes.length;i++){
+      var a=nodes[i];
+      if(!rm){ a.x+=a.vx; a.y+=a.vy; if(a.x<0||a.x>W)a.vx*=-1; if(a.y<0||a.y>H)a.vy*=-1; }
+      for(var j=i+1;j<nodes.length;j++){ var b=nodes[j], dx=a.x-b.x, dy=a.y-b.y, d=dx*dx+dy*dy; if(d<14000){ ctx.strokeStyle='rgba(92,200,255,'+(0.22*(1-d/14000)).toFixed(3)+')'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); } }
+      var mx=a.x-mouse.x, my=a.y-mouse.y, md=mx*mx+my*my;
+      if(md<22000){ ctx.strokeStyle='rgba(92,200,255,'+(0.7*(1-md/22000)).toFixed(3)+')'; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(mouse.x,mouse.y); ctx.stroke(); }
+      ctx.fillStyle='rgba(92,200,255,.65)'; ctx.fillRect(a.x-1.5,a.y-1.5,3,3);
+    }
+    if(!rm) requestAnimationFrame(draw);
+  }
+  size(); window.addEventListener('resize',size);
+  var cr=document.getElementById('crystal').firstElementChild;
+  function move(x,y){ var r=hero.getBoundingClientRect(); mouse.x=x-r.left; mouse.y=y-r.top; var nx=(mouse.x/r.width-.5), ny=(mouse.y/r.height-.5); if(!rm) cr.style.transform='translate('+(nx*26).toFixed(1)+'px,'+(ny*18).toFixed(1)+'px) rotate('+(nx*6).toFixed(1)+'deg)'; }
+  hero.addEventListener('pointermove',function(e){move(e.clientX,e.clientY);});
+  hero.addEventListener('pointerleave',function(){mouse.x=-999;mouse.y=-999;cr.style.transform='';});
+})();
+  var sp=document.getElementById("spot");if(sp&&!rm)window.addEventListener("pointermove",function(e){sp.style.setProperty("--x",e.clientX+"px");sp.style.setProperty("--y",e.clientY+"px")});
+</script>
+</body>
+</html>
